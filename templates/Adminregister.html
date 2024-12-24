@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Registration</title>
+</head>
+<style>
+    body {
+        font-family: sans-serif;
+        background-color:rgb(175, 59, 10);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    
+    .container {
+        background-color:rgb(14, 138, 233);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    
+    button {
+        background-color:rgb(186, 82, 8);
+        color: white;
+        padding: 10px 20px;
+        border: center;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    
+    .error {
+        color: red;
+        margin-bottom: 10px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Registration</h1>
+        {% if msg %}
+            <p class="error">{{ msg }}</p>
+        {% endif %}
+        <form method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('AdminLogin') }}">Log in here.</a></p 
+    </div>
+</body>
+</html>
